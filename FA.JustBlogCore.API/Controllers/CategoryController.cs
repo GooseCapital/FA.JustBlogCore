@@ -1,4 +1,5 @@
-﻿using FA.JustBlogCore.Services.Repository.Interface;
+﻿using AutoMapper;
+using FA.JustBlogCore.Services.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,9 +15,12 @@ namespace FA.JustBlogCore.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public CategoryController(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+
+        public CategoryController(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            this._unitOfWork = unitOfWork;
+            this._mapper = mapper;
         }
 
         [HttpGet]

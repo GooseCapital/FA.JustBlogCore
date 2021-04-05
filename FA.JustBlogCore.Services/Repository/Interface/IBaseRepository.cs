@@ -12,11 +12,11 @@ namespace FA.JustBlogCore.Services.Repository.Interface
 
         void Delete(TEntity entity);
 
-        void Delete(int id);
+        void Delete(Guid id);
 
         void Update(TEntity entity);
 
-        IQueryable<TEntity> Find(int id);
+        TEntity Find(Guid id);
 
         IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 

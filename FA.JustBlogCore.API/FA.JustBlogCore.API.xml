@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FA.JustBlogCore.API</name>
+    </assembly>
+    <members>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetAllPost">
+            <summary>
+            Get list all published post
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetPostById(System.Guid)">
+            <summary>
+            Get post by id of post
+            </summary>
+            <param name="id">Guid of post</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.CreatePost(FA.JustBlogCore.API.Models.DTO.Post.PostCreateDTO)">
+            <summary>
+            Create a new post
+            </summary>
+            <param name="postCreateDTO">Object post</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.UpdatePost(FA.JustBlogCore.API.Models.DTO.Post.PostUpdateDTO)">
+            <summary>
+            Update post
+            </summary>
+            <param name="postUpdateDTO">Updated post data</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.DeletePost(System.Guid)">
+            <summary>
+            Delete a post
+            </summary>
+            <param name="id">Guid of post</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetLatestPost(System.Int32)">
+            <summary>
+            Get latest post
+            </summary>
+            <param name="size">Number of records</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetMostViewedPost(System.Int32)">
+            <summary>
+            Get most viewed post
+            </summary>
+            <param name="size">Number of records</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetHighestPosts(System.Int32)">
+            <summary>
+            Get most rated post
+            </summary>
+            <param name="size">Number of records</param>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetAllPublishedPost">
+            <summary>
+            Get all published post
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FA.JustBlogCore.API.Controllers.PostController.GetPostByMonthYear(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get post by datetime, optimize SEO keyword and it posted
+            </summary>
+            <param name="year">Year of post</param>
+            <param name="month">Month of post</param>
+            <param name="urlSlug">Url slug of post</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

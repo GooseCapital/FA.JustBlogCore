@@ -1,13 +1,15 @@
-﻿using System;
+﻿using FA.JustBlogCore.API.Models.DTO.Post;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FA.JustBlogCore.Services.Model
+namespace FA.JustBlogCore.API.Models.DTO
 {
-    public class Comment
+    public class CommentDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required]
@@ -26,6 +28,6 @@ namespace FA.JustBlogCore.Services.Model
         public Guid PostId { get; set; }
 
         [ForeignKey("PostId")]
-        public virtual Post Post { get; set; }
+        public virtual PostDTO Post { get; set; }
     }
 }

@@ -1,14 +1,15 @@
-﻿using System;
+﻿using FA.JustBlogCore.Services.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FA.JustBlogCore.Services.Model
+namespace FA.JustBlogCore.API.Models.DTO.Post
 {
-    public class Post
+    public class PostDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required]
@@ -38,29 +39,13 @@ namespace FA.JustBlogCore.Services.Model
 
         public string ReviewedBy { get; set; }
 
-        public virtual IList<Tag> Tags { get; set; }
+        public virtual IList<TagDTO> Tags { get; set; }
 
-        public virtual IList<Comment> Comments { get; set; }
+        public virtual IList<CommentDTO> Comments { get; set; }
 
         public Guid CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
-        public virtual Category Category { get; set; }
-
-        [NotMapped]
-        public double Rate
-        {
-            get
-            {
-                if (this.RateCount == 0)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return TotalRate * 1.0 / RateCount;
-                }
-            }
-        }
+        public virtual CategoryDTO Category { get; set; }
     }
 }

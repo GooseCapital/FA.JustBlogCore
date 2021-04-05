@@ -21,15 +21,15 @@ namespace FA.JustBlogCore.Services.Migrations
 
             modelBuilder.Entity("FA.JustBlogCore.Services.Model.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlSlug")
@@ -38,19 +38,46 @@ namespace FA.JustBlogCore.Services.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2a77e1bb-d765-4b8b-bc7e-fe21df7f7320"),
+                            Name = "Thời sự",
+                            UrlSlug = "thoi-su"
+                        },
+                        new
+                        {
+                            Id = new Guid("0906c8bd-286f-483b-ae37-fb5d3d936e8c"),
+                            Name = "Góc nhìn",
+                            UrlSlug = "goc-nhin"
+                        },
+                        new
+                        {
+                            Id = new Guid("a8e11a72-7107-4f8d-8bc8-1659a10eef28"),
+                            Name = "Thế giới",
+                            UrlSlug = "the-gioi"
+                        },
+                        new
+                        {
+                            Id = new Guid("4fc930d9-ff9b-49eb-9535-923a640ca5fb"),
+                            Name = "Giáo dục",
+                            UrlSlug = "giao-duc"
+                        });
                 });
 
             modelBuilder.Entity("FA.JustBlogCore.Services.Model.Comment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CommentHeader")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommentText")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CommentTime")
@@ -60,10 +87,11 @@ namespace FA.JustBlogCore.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -74,18 +102,18 @@ namespace FA.JustBlogCore.Services.Migrations
 
             modelBuilder.Entity("FA.JustBlogCore.Services.Model.Post", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Modified")
+                    b.Property<DateTime?>("Modified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PostContent")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostedBy")
@@ -104,9 +132,11 @@ namespace FA.JustBlogCore.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TotalRate")
@@ -127,10 +157,9 @@ namespace FA.JustBlogCore.Services.Migrations
 
             modelBuilder.Entity("FA.JustBlogCore.Services.Model.Tag", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Count")
                         .HasColumnType("int");
@@ -139,6 +168,7 @@ namespace FA.JustBlogCore.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlSlug")
@@ -147,15 +177,73 @@ namespace FA.JustBlogCore.Services.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("37a21498-5676-4178-85f6-402d5cecb71c"),
+                            Count = 0,
+                            Name = "Giao thông",
+                            UrlSlug = "giao-thong"
+                        },
+                        new
+                        {
+                            Id = new Guid("e93bba14-cf15-4ef2-bec2-25f661ebbb7e"),
+                            Count = 0,
+                            Name = "Chính trị",
+                            UrlSlug = "chinh-tri"
+                        },
+                        new
+                        {
+                            Id = new Guid("434ea753-a62d-47af-8399-705572a17482"),
+                            Count = 0,
+                            Name = "Tuyến đầu chống dịch",
+                            UrlSlug = "tuyen-dau-chong-dich"
+                        },
+                        new
+                        {
+                            Id = new Guid("53658102-84db-4fd4-94ef-b8a896048184"),
+                            Count = 0,
+                            Name = "Tuyển sinh",
+                            UrlSlug = "tuyen-sinh"
+                        },
+                        new
+                        {
+                            Id = new Guid("306a579c-c6a6-4644-b31f-f4710aa6c9a9"),
+                            Count = 0,
+                            Name = "Điểm thi",
+                            UrlSlug = "diem-thi"
+                        },
+                        new
+                        {
+                            Id = new Guid("3523b063-0e56-46b7-8c9e-e56676d8e9b9"),
+                            Count = 0,
+                            Name = "Du học",
+                            UrlSlug = "du-hoc"
+                        },
+                        new
+                        {
+                            Id = new Guid("50e4db36-1f96-4dd5-a82f-c10be89c2b76"),
+                            Count = 0,
+                            Name = "Học tiếng Anh",
+                            UrlSlug = "hoc-tieng-anh"
+                        },
+                        new
+                        {
+                            Id = new Guid("1f512a2a-93bb-4515-a57f-93e8d48b6294"),
+                            Count = 0,
+                            Name = "Trắc nghiệm",
+                            UrlSlug = "trac-nghiem"
+                        });
                 });
 
             modelBuilder.Entity("PostTag", b =>
                 {
-                    b.Property<int>("PostsId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PostsId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TagsId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("TagsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PostsId", "TagsId");
 

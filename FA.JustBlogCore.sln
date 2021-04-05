@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FA.JustBlogCore.Services", "FA.JustBlogCore.Services\FA.JustBlogCore.Services.csproj", "{4CB8C6CD-7841-42EB-965D-076997EAE446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FA.JustBlogCore.Services", "FA.JustBlogCore.Services\FA.JustBlogCore.Services.csproj", "{4CB8C6CD-7841-42EB-965D-076997EAE446}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FA.JustBlogCore.API", "FA.JustBlogCore.API\FA.JustBlogCore.API.csproj", "{0C570AF4-339D-4B42-9CF3-D33DA4FC6DB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustBlog.Test", "JustBlog.Test\JustBlog.Test.csproj", "{98B5FDF4-FF9E-4502-B2E0-5D5D22C508F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +19,23 @@ Global
 		{4CB8C6CD-7841-42EB-965D-076997EAE446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CB8C6CD-7841-42EB-965D-076997EAE446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CB8C6CD-7841-42EB-965D-076997EAE446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C570AF4-339D-4B42-9CF3-D33DA4FC6DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C570AF4-339D-4B42-9CF3-D33DA4FC6DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C570AF4-339D-4B42-9CF3-D33DA4FC6DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C570AF4-339D-4B42-9CF3-D33DA4FC6DB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B5FDF4-FF9E-4502-B2E0-5D5D22C508F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B5FDF4-FF9E-4502-B2E0-5D5D22C508F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B5FDF4-FF9E-4502-B2E0-5D5D22C508F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B5FDF4-FF9E-4502-B2E0-5D5D22C508F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8CFEE368-DF04-4D69-83E2-B16CDEA7FD24}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN2019 - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

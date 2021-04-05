@@ -1,15 +1,14 @@
-﻿using System;
+﻿using FA.JustBlogCore.API.Models.DTO.Post;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FA.JustBlogCore.Services.Model
+namespace FA.JustBlogCore.API.Models.DTO
 {
-    public class Tag
+    public class TagDTO
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required]
@@ -21,6 +20,6 @@ namespace FA.JustBlogCore.Services.Model
 
         public int Count { get; set; }
 
-        public virtual IList<Post> Posts { get; set; }
+        public virtual IList<PostDTO> Posts { get; set; }
     }
 }

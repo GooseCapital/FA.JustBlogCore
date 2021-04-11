@@ -1,6 +1,7 @@
 ﻿using FA.JustBlogCore.Services.Model;
 using FA.JustBlogCore.Services.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +10,12 @@ namespace FA.JustBlogCore.Services.Repository.Implement
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public UnitOfWork(JustBlogCoreContext context)
+        private readonly IOptions<AppSettings> _appSettings;
+
+        public UnitOfWork(JustBlogCoreContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
+            _appSettings = appSettings;
         }
 
         protected DbContext _context;
@@ -84,6 +88,23 @@ namespace FA.JustBlogCore.Services.Repository.Implement
             }
         }
 
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if (this._userRepository == null)
+                {
+                    this._userRepository = new UserRepository(this._context, this._appSettings);
+                }
+
+                return this._userRepository;
+            }
+            set
+            {
+                return;
+            }
+        }
+
         private IPostRepository _postRepository;
 
         private ICategoryRepository _categoryRepository;
@@ -91,6 +112,8 @@ namespace FA.JustBlogCore.Services.Repository.Implement
         private ICommentRepository _commentRepository;
 
         private ITagRepository _tagRepository;
+
+        private IUserRepository _userRepository;
 
         public int SaveChanges()
         {

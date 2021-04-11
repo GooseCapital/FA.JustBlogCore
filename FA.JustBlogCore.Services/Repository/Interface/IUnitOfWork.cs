@@ -14,6 +14,8 @@ namespace FA.JustBlogCore.Services.Repository.Interface
 
         ITagRepository TagRepository { get; set; }
 
+        IUserRepository UserRepository { get; set; }
+
         int SaveChanges();
     }
 }

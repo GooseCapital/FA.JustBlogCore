@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FA.JustBlogCore.Services.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace FA.JustBlogCore.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Test")]
     public class CategoryController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

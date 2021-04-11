@@ -19,6 +19,8 @@ namespace FA.JustBlogCore.Services.Model
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(@"Server=TIENDUNG\SQLEXPRESS;Database=JustBlogCore;User Id=sa;Password=123;");

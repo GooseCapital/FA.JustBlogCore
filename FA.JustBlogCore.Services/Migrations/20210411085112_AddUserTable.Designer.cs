@@ -4,14 +4,16 @@ using FA.JustBlogCore.Services.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FA.JustBlogCore.Services.Migrations
 {
     [DbContext(typeof(JustBlogCoreContext))]
-    partial class JustBlogCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20210411085112_AddUserTable")]
+    partial class AddUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

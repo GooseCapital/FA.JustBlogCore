@@ -15,32 +15,32 @@ namespace JustBlog.Test
         private DbContextOptions<JustBlogCoreContext> options = new DbContextOptionsBuilder<JustBlogCoreContext>()
                 .UseInMemoryDatabase(databaseName: "JustBlogCore").Options;
 
-        [TestCase("Test", "This is description")]
-        public void Add(string name, string description)
-        {
-            UnitOfWork unitOfWork = new UnitOfWork(new JustBlogCoreContext(options));
-            unitOfWork.CategoryRepository.Add(new Category()
-            {
-                Name = name,
-                Description = description
-            });
+        //[TestCase("Test", "This is description")]
+        //public void Add(string name, string description)
+        //{
+        //    UnitOfWork unitOfWork = new UnitOfWork(new JustBlogCoreContext(options));
+        //    unitOfWork.CategoryRepository.Add(new Category()
+        //    {
+        //        Name = name,
+        //        Description = description
+        //    });
 
-            unitOfWork.SaveChanges();
-            unitOfWork.CategoryRepository.Add(new Category()
-            {
-                Name = name,
-                Description = description
-            });
+        //    unitOfWork.SaveChanges();
+        //    unitOfWork.CategoryRepository.Add(new Category()
+        //    {
+        //        Name = name,
+        //        Description = description
+        //    });
 
-            unitOfWork.SaveChanges();
-            unitOfWork.CategoryRepository.Add(new Category()
-            {
-                Name = name,
-                Description = description
-            });
+        //    unitOfWork.SaveChanges();
+        //    unitOfWork.CategoryRepository.Add(new Category()
+        //    {
+        //        Name = name,
+        //        Description = description
+        //    });
 
-            unitOfWork.SaveChanges();
-            var a = unitOfWork.CategoryRepository.GetAll().ToList();
-        }
+        //    unitOfWork.SaveChanges();
+        //    var a = unitOfWork.CategoryRepository.GetAll().ToList();
+        //}
     }
 }
